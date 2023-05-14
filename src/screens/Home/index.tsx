@@ -37,7 +37,8 @@ export function Home() {
   }
 
   function handleFilterLoginData() {
-    // Filter results inside data, save with setSearchListData
+    const filteredData = data.filter((item) => item.service_name.toLowerCase().includes(searchText.toLowerCase()));
+    setSearchListData(filteredData);
   }
 
   function handleChangeInputText(text: string) {
