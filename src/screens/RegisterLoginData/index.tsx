@@ -50,14 +50,27 @@ export function RegisterLoginData() {
   });
 
   async function handleRegister(formData: FormData) {
+     if (!formData) {
+      return Alert.alert('Erro', 'Não foi possível salvar');
+    }
     const newLoginData = {
       id: String(uuid.v4()),
       ...formData
     }
-
-    const dataKey = '@savepass:logins';
-
-    // Save data on AsyncStorage and navigate to 'Home' screen
+    try {
+      const dataKey = '@savepass:logins';
+      const data = await AsyncStorage.getItem(dataKey);
+      const currentData = data ? JSON.parse(data) : [];
+      const dataFormatted = [
+        ...currentData,
+        newLoginData
+      ];
+      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
+      navigate('Home'); 
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Erro', 'Não foi possível salvar');
+    }
   }
 
   return (
