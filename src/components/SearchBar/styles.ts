@@ -35,7 +35,7 @@ export const Button = styled.Pressable`
 `;
 
 export const Icon = styled(Feather).attrs({
-  size: 24,
+  size: 20,
   color: '#3D434D'
 })``;
 

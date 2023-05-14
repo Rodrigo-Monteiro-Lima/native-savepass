@@ -86,10 +86,7 @@ export function RegisterLoginData() {
             testID="service-name-input"
             title="Nome do serviço"
             name="service_name"
-            error={
-              // Replace here with real content
-              'Has error ? show error message'
-            }
+            error={errors.service_name && errors.service_name.message as string}
             control={control}
             autoCapitalize="sentences"
             autoCorrect
@@ -99,9 +96,8 @@ export function RegisterLoginData() {
             title="E-mail ou usuário"
             name="email"
             error={
-              // Replace here with real content
-              'Has error ? show error message'
-            }
+              errors.email && errors.email.message as string
+             }
             control={control}
             autoCorrect={false}
             autoCapitalize="none"
@@ -112,8 +108,7 @@ export function RegisterLoginData() {
             title="Senha"
             name="password"
             error={
-              // Replace here with real content
-              'Has error ? show error message'
+              errors.password && errors.password.message as string
             }
             control={control}
             secureTextEntry
