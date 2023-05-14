@@ -42,7 +42,10 @@ export function Home() {
   }
 
   function handleChangeInputText(text: string) {
-    // Update searchText value
+    if (!text) {
+      setSearchListData(data);
+    }
+    setSearchText(text);
   }
 
   useFocusEffect(useCallback(() => {
@@ -53,8 +56,8 @@ export function Home() {
     <>
       <Header
         user={{
-          name: 'Rocketseat',
-          avatar_url: 'https://i.ibb.co/ZmFHZDM/rocketseat.jpg'
+          name: 'Rodrigo',
+          avatar_url: 'https://avatars.githubusercontent.com/u/108936962?v=4'
         }}
       />
       <Container>
